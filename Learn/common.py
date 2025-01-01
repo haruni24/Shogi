@@ -4,10 +4,10 @@ import numpy as np
 def board_to_input(board):
     input = list()
     np_board = np.array(board.pieces)
-    for i in range(1,cshogi.WPROM_ROOK):
+    for i in range(1,cshogi.WPROM_ROOK+1):
         if i==15 or i==16:
             continue
-        input.append(i==np_board)
+        input.append((i==np_board).reshape(9, 9))
     return np.array(input)
 
 def random_play(board):
